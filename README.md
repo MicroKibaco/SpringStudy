@@ -1,8 +1,7 @@
-### 什么是框架
-
+### 什么是框架?
 ![框架](docs/spring-overview.png)
 ### Spring简介
-#### 如何学习Spring
+#### 如何学习Spring?
 - 掌握用法
 - 深入理解
 - 不断实践
@@ -28,7 +27,7 @@
 - 提供了众多方便应用的辅助类(JDBC Template等)
 - 对主流应用框架(Hibernate等)提供良好的支持
 #### 适用范围
-- 构建企业应用(SpringMVC + Spring + Hibernate/ibatis)
+- 构建企业应用(SpringMVC + Spring + Hibernate/Mybatis)
 - 单独适用Bean容器
 - 单独使用AOP进行切面处理
 - 其他的Spring功能,如: 对消息的支持等
@@ -49,5 +48,23 @@
         - 设置注入
         - 构造注入
 ### Bean(配置,注解)
+- Bean的配置项
+  - Id
+  - Class
+  - Scope
+  - Constructor arguments
+  - Properties
+  - Autowiring mode
+  - lazy-initialzation mode
+  - initialzation/destruction method
+- Bean的作用域
+  - singleton: 单例,指一个Bean容器只存一份
+  - prototype: 每次请求(每次使用)创建新的实例, destory方式不生效
+  - request: 每次http请求创建一个实例且仅在当前request内有效
+  - session: 同上,每次http请求创建,当前session内有效
+  - global session: 基于portlet的web内有效(portlet定义了global session),如果在web中,同为session
+- Bean的生命周期
+- Bean的自动装配
+- Resource & ResourceLoader
 ### AOP(配置,注解,AspectJ,API)
 
