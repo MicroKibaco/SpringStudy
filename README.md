@@ -103,6 +103,18 @@ ApplicationContext 比  BeanFactory 更加强大,
 1. 基于XML的配置
 2. 基于注解的配置
 3. 基于Java的配置
+
+### 请举例解释@Required annotation？
+- @Required注解适用于bean属性的setter方法
+- 这个注解仅仅表示,受影响的bean属性必须配置时被填充,通过beand定义或通过自动装配一个明确值
+### 请举例解释@Autowired注解？
+- 可以将@Autowired注解为传统的setter方法
+- 可以通过构造器或成员变量
+- 默认情况下,如果因找不到合适的bean将会导致autowiring失败抛出异常,可以通过下面的方式避免
+- 每个类只能有一个构造器被标记为required = true
+- @Autowired的必要属性,建议使用@Required注解
+### 请举例说明@Qualifier注解？
+
 ### 其他问题
 ```
 1. 如何在Spring中注入一个Java Collection？
@@ -110,9 +122,6 @@ ApplicationContext 比  BeanFactory 更加强大,
 3. 请解释Spring Bean的自动装配？
 4. 请解释自动装配模式的区别？
 5. 如何开启基于注解的自动装配？
-6. 请举例解释@Required annotation？
-7. 请举例解释@Autowired注解？
-8. 请举例说明@Qualifier注解？
 9. 构造方法注入和设值注入有什么区别？
 10. Spring框架中有哪些不同类型的事件？
 11. FileSystemResource和ClassPathResource有何区别？
