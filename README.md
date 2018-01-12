@@ -103,8 +103,21 @@ webApplicationContext,因此BeanFactory接口是Spring IOC容器核心接口
     - 不是为了提供完整的AOP实现(尽管非常强大);而是侧重于提供一种AOP实现和Spring IOC容器之间的整合,用于帮助企业解决企业应用中的常见问题
     - Spring AOP不会与AspectJ竞争,从而全面提供综合全面的AOP解决方案
 - Schema-based AOP
-
+    - <aop:config>
+    - Pointcut
+    - Advice
+    - Introductions
+    - Advisors
 - Spring AOP API
+
+```
+ 1. 这是Spring1.2历史用法,现在(V4.0)仍然支持
+ 2. 这是SpringAOP基础
+ 3. 现在用法也是基于历史的
+```
+   - Pointcut
+   实现一: NameMatchMethodPointcut,根据方法名字进行匹配
+   成员变量: mappedNames, 匹配的方法名集合
 - AspectJ
 - 有接口和无接口的Spring AOP实现区别
     - Spring AOP默认使用标准的javaSE动态代理作为AOP代理,这使得任何接口(或者接口集)都可以被代理
