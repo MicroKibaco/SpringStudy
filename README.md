@@ -93,6 +93,22 @@ webApplicationContext,因此BeanFactory接口是Spring IOC容器核心接口
 - Bean的自动装配
 - Resource & ResourceLoader
 ### AOP(配置,注解,AspectJ,API)
+- 什么是AOP及实现方式
+- AOP基本概念
+    - AOP: Aspect Oriented Programming 的缩写,意为:面向切面编程,通过预编译方式和运行期动态代理实现程序功能的统一维护的一种技术
+    - 主要功能是: 日志记录,性能统计,安全控制,事物处理,异常处理等等
+- String中的AOP
+    - 纯java实现,无须特殊编译过程,不需要类加载器层次
+    - 目前只支持方法执行连接点(通知Spring Bean的方法执行)
+    - 不是为了提供完整的AOP实现(尽管非常强大);而是侧重于提供一种AOP实现和Spring IOC容器之间的整合,用于帮助企业解决企业应用中的常见问题
+    - Spring AOP不会与AspectJ竞争,从而全面提供综合全面的AOP解决方案
+- Schema-based AOP
+
+- Spring AOP API
+- AspectJ
+- 有接口和无接口的Spring AOP实现区别
+    - Spring AOP默认使用标准的javaSE动态代理作为AOP代理,这使得任何接口(或者接口集)都可以被代理
+    - Spring AOP中也可以使用CGLIB代理(如果一个业务对象并没有实现一个接口)
 ### BeanFactory与ApplicationContext区别
 ApplicationContext 比  BeanFactory 更加强大,
 1. 提供了支持国际化文本消息
@@ -106,14 +122,30 @@ ApplicationContext 比  BeanFactory 更加强大,
 
 ### 请举例解释@Required annotation？
 - @Required注解适用于bean属性的setter方法
-- 这个注解仅仅表示,受影响的bean属性必须配置时被填充,通过beand定义或通过自动装配一个明确值
+- 这个注解仅仅表示,受影响的bean属性必须配置时被填充,通过bean的定义或通过自动装配一个明确值
 ### 请举例解释@Autowired注解？
 - 可以将@Autowired注解为传统的setter方法
 - 可以通过构造器或成员变量
 - 默认情况下,如果因找不到合适的bean将会导致autowiring失败抛出异常,可以通过下面的方式避免
 - 每个类只能有一个构造器被标记为required = true
 - @Autowired的必要属性,建议使用@Required注解
+- 可以使用@Autowired注解那些众所周知的解析依赖性接口,比如: BeanFactory,ApplicationContext,
+Enviroment,RessourceLoader,ApplicationEventPublisher,and MessageSource
+- 可以通过添加注解给需要该类型的数组字段或方法,以提供ApplicationContext中所有特定类型的bean
+- 可以用于装配key为String的map
+- 如果希望数组有序,可以让bean实现org.springframework.core.Ordered接口或使用@Order注解
+- @Autowired是由Spring BeanPostProcessor处理的,所以不能在自己的BeanPostProcessor或
+BeanFactoryPostProcessor类型应用这些注解,这些类型必须通过XML或者Spring的@Bean注解加载
+- 可以通过添加注解给需要该类型的数组或方法,以提供ApplicationContext中的所以特定类型的bean
+- 可以用于装配key为String的map
+- 如果希望数组有序,可以让bean实现org.springframework.core.Ordered接口或使用
+@Ordered注解
 ### 请举例说明@Qualifier注解？
+- 按类型自动装配可能多个bean实例的情况,可以使用Spring的@Qualifier注解缩小范围(或指定唯一),也可以
+用于指定单独的构造器参数或方法参数
+- 可用于集合类型变量
+### 数组及Map的自动注入
+
 
 ### 其他问题
 ```
@@ -122,8 +154,8 @@ ApplicationContext 比  BeanFactory 更加强大,
 3. 请解释Spring Bean的自动装配？
 4. 请解释自动装配模式的区别？
 5. 如何开启基于注解的自动装配？
-9. 构造方法注入和设值注入有什么区别？
-10. Spring框架中有哪些不同类型的事件？
-11. FileSystemResource和ClassPathResource有何区别？
-12. Spring 框架中都用到了哪些设计模式？
+6. 构造方法注入和设值注入有什么区别？
+7. Spring框架中有哪些不同类型的事件？
+8. FileSystemResource和ClassPathResource有何区别？
+9. Spring 框架中都用到了哪些设计模式？
 ```

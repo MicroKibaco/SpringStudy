@@ -35,7 +35,82 @@
             <artifactId>javax.inject</artifactId>
             <version>1</version>
         </dependency>
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <version>1.8.6</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-tx</artifactId>
+            <version>4.1.6.RELEASE</version>
+        </dependency>
     </dependencies>
+    <!--远程仓库配置,插件下载路径配置,仓库只能使用统一的仓库不能自定义-->
+    <repositories>
+        <repository>
+            <id>releases</id>
+            <name>releases</name>
+            <!--<url>http://10.21.20.75:8081/nexus/content/groups/public/</url>-->
+            <url>http://124.207.3.117:8888/nexus/content/groups/public/</url>
+        </repository>
+        <repository>
+            <id>central</id>
+            <name>central</name>
+            <url>http://maven.aliyun.com/nexus/content/groups/public</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>maven</id>
+            <name>maven</name>
+            <url>http://repo1.maven.org/maven2/</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+        <!-- <repository>
+             <id>snapshots</id>
+             <name>snapshots</name>
+             <url>http://124.207.3.117:8888/nexus/content/repositories/snapshots/</url>
+             <snapshots>
+                 <enabled>true</enabled>
+             </snapshots>
+         </repository>-->
+    </repositories>
+
+    <!-- 插件使用的仓库地址 -->
+    <pluginRepositories>
+        <pluginRepository>
+            <id>releases</id>
+            <name>releases</name>
+            <!-- <url>http://10.21.20.75:8081/nexus/content/groups/public/</url>-->
+            <url>http://124.207.3.117:8888/nexus/content/groups/public/</url>
+        </pluginRepository>
+        <pluginRepository>
+            <id>central</id>
+            <name>central</name>
+            <url>http://maven.aliyun.com/nexus/content/groups/public</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </pluginRepository>
+    </pluginRepositories>
+
+    <!--发布和快照使用仓库地址,注意需要在settings.xml中配置对应id的server帐号密码-->
+    <distributionManagement>
+        <repository>
+            <id>releases</id>
+            <name>releases</name>
+            <url>http://124.207.3.117:8888/nexus/content/repositories/releases/</url>
+        </repository>
+        <snapshotRepository>
+            <id>snapshots</id>
+            <name>snapshots</name>
+            <url>http://124.207.3.117:8888/nexus/content/repositories/snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
 
 
 </project>
