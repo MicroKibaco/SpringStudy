@@ -5,7 +5,7 @@ Spring帮助开发者解决开发中的基础性问题,使得开发人员可以�
 ### Spring框架有哪些模块?
 Spring框架至今已集成了20多个模块.这些模块主要被划分如下图所示的核心容器,数据访问/集成,
 web,AOP(面向切面),工具,消息和测试模块
-![框架](docs/spring-overview.png)
+![框架](./spring/docs/spring-overview.png)
 ### Spring简介
 #### 如何学习Spring?
 - 掌握用法
@@ -51,7 +51,7 @@ web,AOP(面向切面),工具,消息和测试模块
   - **DL(依赖注入)是其一种实现方式**
   - **目的:**创建对象并且组装对象的关系
 
-![配置](docs/container-magic.png)
+![配置](./spring/docs/container-magic.png)
 - Spring的Bean配置
 - Bean的初始化
 - Spring常用注入方式
@@ -172,3 +172,4 @@ BeanFactoryPostProcessor类型应用这些注解,这些类型必须通过XML或�
 8. FileSystemResource和ClassPathResource有何区别？
 9. Spring 框架中都用到了哪些设计模式？
 ```
+
