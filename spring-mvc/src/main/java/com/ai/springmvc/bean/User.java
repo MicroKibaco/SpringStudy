@@ -3,7 +3,7 @@ package com.ai.springmvc.bean;
 public class User {
 
     private String name;
-    private String age;
+    private int age;
     private ContactInfo contactInfo;
 
     public ContactInfo getContactInfo() {
@@ -22,11 +22,11 @@ public class User {
         this.name = name;
     }
 
-    public String getAge() {
+    public int getAge() {
         return age;
     }
 
-    public void setAge(String age) {
+    public void setAge(int age) {
         this.age = age;
     }
 
@@ -34,7 +34,7 @@ public class User {
     public String toString() {
         return "User{" +
                 "name='" + name + '\'' +
-                ", age='" + age + '\'' +
+                ", age=" + age +
                 ", contactInfo=" + contactInfo +
                 '}';
     }

@@ -1,10 +1,15 @@
 package com.ai.springmvc.bean;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement(name = "admin")
 public class Admin {
 
     private String name;
     private Integer age;
 
+    @XmlElement(name = "name")
     public String getName() {
         return name;
     }
@@ -13,6 +18,7 @@ public class Admin {
         this.name = name;
     }
 
+    @XmlElement(name = "age")
     public Integer getAge() {
         return age;
     }

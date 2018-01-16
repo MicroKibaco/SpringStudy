@@ -8,7 +8,7 @@ public class UserSetForm {
     private Set<User> users;
 
     public UserSetForm(){
-        users = new LinkedHashSet<>();
+        users = new LinkedHashSet<User>();
         users.add(new User());
         users.add(new User());
     }
