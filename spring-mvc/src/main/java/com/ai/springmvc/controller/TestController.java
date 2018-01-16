@@ -3,6 +3,7 @@ package com.ai.springmvc.controller;
 import com.ai.springmvc.bean.Admin;
 import com.ai.springmvc.bean.User;
 import com.ai.springmvc.bean.UserListForm;
+import com.ai.springmvc.bean.UserMapForm;
 import com.ai.springmvc.bean.UserSetForm;
 
 import org.springframework.stereotype.Controller;
@@ -68,6 +69,13 @@ public class TestController {
     @ResponseBody
     public String set(UserSetForm usersetform) {
         return usersetform.toString();
+    }
+
+    // http://localhost:8080/map.do?users['X'].name=Tom&users['X'].age=10&users['Y'].name=Lucy
+    @RequestMapping(value = "map.do")
+    @ResponseBody
+    public String map(UserMapForm userMapForm) {
+        return userMapForm.toString();
     }
 
 }
