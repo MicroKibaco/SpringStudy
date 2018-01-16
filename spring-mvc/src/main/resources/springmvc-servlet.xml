@@ -21,7 +21,7 @@
                                 expression="org.springframework.stereotype.Controller"></context:include-filter>
     </context:component-scan>
     <!-- 开启springMVC的注解驱动，使得url可以映射到对应的controller -->
-    <mvc:annotation-driven conversion-service="myDateFormatter"/>
+    <mvc:annotation-driven conversion-service="myDateConvert"/>
     <!-- 视图解析 -->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/jsps/"/>
@@ -29,11 +29,21 @@
     </bean>
 
     <mvc:default-servlet-handler></mvc:default-servlet-handler>
-    <bean id="myDateFormatter"
+   <!-- <bean id="myDateFormatter"
           class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
         <property name="formatters">
             <set>
                 <bean class="com.ai.springmvc.common.MyDateFormatter">
+
+                </bean>
+            </set>
+        </property>
+    </bean>-->
+    <bean id="myDateConvert"
+          class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
+        <property name="converters">
+            <set>
+                <bean class="com.ai.springmvc.common.MyDateConvert ">
 
                 </bean>
             </set>

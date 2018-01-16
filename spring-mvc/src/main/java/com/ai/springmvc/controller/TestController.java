@@ -10,13 +10,17 @@ import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+
+import javax.servlet.http.HttpServletRequest;
 
 @Controller
 public class TestController {
@@ -121,4 +125,37 @@ public class TestController {
         binder.registerCustomEditor(Date.class, new CustomDateEditor(new SimpleDateFormat("yyyy-MM-dd"), true));
     }
 
+
+    @RequestMapping(value = "/book", method = RequestMethod.GET)
+    @ResponseBody
+    public String book(HttpServletRequest request) {
+        String contentType = request.getContentType();
+        if (null == contentType) {
+            return "book.default";
+        } else if ("txt".equals(contentType)) {
+            return "book.txt";
+        } else if ("html".equals(contentType)) {
+            return "book.html";
+        }
+        return "book.default";
+    }
+
+    @RequestMapping(value = "/subject/{subjectId}", method = RequestMethod.POST)
+    @ResponseBody
+    public String subjectGet(@PathVariable("subjectId") String subjectId) {
+        return "this is a get Method,subjectId:" + subjectId;
+    }
+    @RequestMapping(value = "/subject/{subjectId}", method = RequestMethod.DELETE)
+    @ResponseBody
+    public String subjectDelete(@PathVariable("subjectId") String subjectId) {
+        return "this is a delete Method,subjectId:" + subjectId;
+    }
+
+    // Todo: http://localhost:8080/subject/11620560
+
+    @RequestMapping(value = "/subject/{subjectId}", method = RequestMethod.PUT)
+    @ResponseBody
+    public String subjectPut(@PathVariable("subjectId") String subjectId) {
+        return "this is a put Method,subjectId:" + subjectId;
+    }
 }
