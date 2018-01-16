@@ -101,13 +101,24 @@ public class TestController {
     // Todo: http://localhost:8080/date1.do?date1=2017-01-01
     @RequestMapping(value = "date1.do")
     @ResponseBody
-    public String date1(Date date1){
+    public String date1(Date date1) {
         return date1.toString();
     }
 
+    @RequestMapping(value = "date2.do")
+    @ResponseBody
+    public String date2(Date date2) {
+        return date2.toString();
+    }
+
     @InitBinder("date1")
-    public void initDate1(WebDataBinder binder){
-        binder.registerCustomEditor(Date.class,new CustomDateEditor(new SimpleDateFormat("yyyy-MM-dd"),true));
+    public void initDate1(WebDataBinder binder) {
+        binder.registerCustomEditor(Date.class, new CustomDateEditor(new SimpleDateFormat("yyyy-MM-dd"), true));
+    }
+
+    @InitBinder("date2")
+    public void initDate2(WebDataBinder binder) {
+        binder.registerCustomEditor(Date.class, new CustomDateEditor(new SimpleDateFormat("yyyy-MM-dd"), true));
     }
 
 }
