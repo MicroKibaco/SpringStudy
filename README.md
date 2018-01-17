@@ -5,6 +5,7 @@ Spring帮助开发者解决开发中的基础性问题,使得开发人员可以�
 ### Spring框架有哪些模块?
 Spring框架至今已集成了20多个模块.这些模块主要被划分如下图所示的核心容器,数据访问/集成,
 web,AOP(面向切面),工具,消息和测试模块
+
 ![框架](./spring/docs/spring-overview.png)
 ### Spring简介
 #### 如何学习Spring?
@@ -68,6 +69,7 @@ web,AOP(面向切面),工具,消息和测试模块
 - BeanFactory 接口提供了一个先进的配置机制,使得任何对象的配置成为了可能,ApplicationContex接口对BeanFactory（是一个子接口）进行了扩展
 ,扩展 BeanFactory ,Spring 与 AOP 集成更加简洁,提供处理Message resource机制(用于国际化),事件传播以及应用层的特别配置,比如针对
 webApplicationContext,因此BeanFactory接口是Spring IOC容器核心接口
+
 ![IOC](http://p2je16s75.bkt.clouddn.com/ioc.png)
 ### Bean(配置,注解)
 - Bean的配置项
@@ -94,6 +96,7 @@ webApplicationContext,因此BeanFactory接口是Spring IOC容器核心接口
   - 销毁
 - Bean的自动装配
 - Resource & ResourceLoader
+
 ![bean-config](http://p2je16s75.bkt.clouddn.com/bean-config.jpg)
 ### AOP(配置,注解,AspectJ,API)
 - 什么是AOP及实现方式
@@ -176,7 +179,13 @@ BeanFactoryPostProcessor类型应用这些注解,这些类型必须通过XML或�
 隔离强调的是多个用户并发访问数据库时,一个用户的事务不能被其他用户的事务所干扰,多个并发事务之间的数据要相互隔离
 4) 持久性
 一个事务一旦被提交了,它对数据库中的数据改变就是永久性的,即数据库发生故障也不应该对其有任何影响
+
 ![事务](http://p2je16s75.bkt.clouddn.com/%E4%BA%8B%E5%8A%A1.png)
+- Spring支持两种方式事务管理
+1) 编程式的事务管理
+   - 通过TransactionTemplate手动管理事务
+2) 使用XML配置声明事务
+   - Spring的声明事务是通过AOP实现的 
 ### 数组及Map的自动注入
 
 
