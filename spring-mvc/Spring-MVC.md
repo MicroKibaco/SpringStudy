@@ -1,7 +1,7 @@
 ### MVC简介
 ### Spring MVC基本概念
 ### Spring MVC项目搭建
-1. 在pom.xml文件中添加以下依赖
+(1) 在pom.xml文件中添加以下依赖
 ```xml
   <dependency>
             <groupId>org.springframework</groupId>
@@ -20,7 +20,7 @@
                     <version>5</version>
                 </dependency>
 ```
-2. 添加web.xml配置文件中关于SpringMVC的配置
+(2) 添加web.xml配置文件中关于SpringMVC的配置
 ```xml
     <display-name>Archetype Created Web Application</display-name>
      <listener>
@@ -59,7 +59,7 @@
         <url-pattern>/*</url-pattern>
     </filter-mapping>
 ```
-3. 在资源文件 resources 中添加 Spring容器的 spring-context-config.xml 配置文件
+(3) 在资源文件 resources 中添加 Spring容器的 spring-context-config.xml 配置文件
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <beans
@@ -87,7 +87,7 @@
 
 
 ```
-4. 在资源文件 resources 中添加 MVC容器的 springmvc-servlet.xml 配置文件
+(4) 在资源文件 resources 中添加 MVC容器的 springmvc-servlet.xml 配置文件
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <beans
@@ -122,8 +122,8 @@
 </beans>
 ```
 
-5. 在WEB-INF创建一个jsps的文件夹,存放jsp视图.也创建一个hello.jsp,在body随便写点文字.
-6. create package and controller,such as
+(5) 在WEB-INF创建一个jsps的文件夹,存放jsp视图.也创建一个hello.jsp,在body随便写点文字.
+(6) create package and controller,such as
 
 ```java
 @Controller
@@ -137,7 +137,8 @@ public class HelloMvcController {
     }
 }
 ```
-7. 启动服务器，键入 http://localhost:8080/路由名称/home.jsp
+(7) 启动服务器，键入 http://localhost:8080/路由名称/home.jsp
+![SpringMVC](http://p2je16s75.bkt.clouddn.com/SpringMVC.JPG)
 
 ### 配置解析
 - DispatcherServlet
@@ -156,6 +157,7 @@ DispatcherServlet 是前置控制器, 配置在web.xml文件中的.拦截配置�
 该注解用于读取Request请求的body部分数据,使用系统默认配置的HttpMessageConverter进行解析,然后将相应数据绑定到要返回的对象上,再把HttpMessageConverter返回对象数据绑定到controller中方法参数上
 4) @ResponseBody
 该注解用于将Controller的方法返回的对象,通过适当的HttpMessageConverter转化为指定格式后,写入到Response对象的boddy数据区
+![RESTful](http://p2je16s75.bkt.clouddn.com/RESTful.png)
 5) @ModelAttribute  
 (I). 在方法定义上使用 @ModelAttribute注解: Spring MVC 在调用目标处理方法前, 会先逐个调查在方法级上标注了@ModelAttribute 的方法
 
@@ -168,9 +170,10 @@ DispatcherServlet 是前置控制器, 配置在web.xml文件中的.拦截配置�
 注解到方法上,出现异常时执行方法
 9) @ControllerAdvice
 使一个Controller成为全局异常处理类,类中用@ExceptionHandler方法注解的方法可以处理所有Controller发生的异常
-
  
 
 
 
 ### 用Spring MVC开发
+![springMVCinfo](http://p2je16s75.bkt.clouddn.com/springMVCinfo.png)
+

@@ -14,6 +14,7 @@ web,AOP(面向切面),工具,消息和测试模块
 - 反复总结
 - 再次深入理解与实践
 #### Spring是什么?
+  ![Spring](http://p2je16s75.bkt.clouddn.com/spring.png)
 * Spring是一个开源框架,最初是为了解决企业应用开发的复杂性而创建的,但现在已经不止应用于企业应用
 * 是一个轻量级的控制反转(IOC)和面向切面(AOP)的容器框架
   - 从大小和开销方面而言Spring都是轻量的
@@ -47,9 +48,9 @@ web,AOP(面向切面),工具,消息和测试模块
 ### 控制反转IOC(配置,注解)
 - 接口,及面向接口编程
 - 什么是IOC
-  - **IOC: 控制反转,**控制权在转移,应用程序本身不负责依赖对象的创建和维护,而是由外部容器负责创建和维护
+  - **IOC: 控制反转,** 控制权在转移,应用程序本身不负责依赖对象的创建和维护,而是由外部容器负责创建和维护
   - **DL(依赖注入)是其一种实现方式**
-  - **目的:**创建对象并且组装对象的关系
+  - **目的:** 创建对象并且组装对象的关系
 
 ![配置](./spring/docs/container-magic.png)
 - Spring的Bean配置
@@ -67,6 +68,7 @@ web,AOP(面向切面),工具,消息和测试模块
 - BeanFactory 接口提供了一个先进的配置机制,使得任何对象的配置成为了可能,ApplicationContex接口对BeanFactory（是一个子接口）进行了扩展
 ,扩展 BeanFactory ,Spring 与 AOP 集成更加简洁,提供处理Message resource机制(用于国际化),事件传播以及应用层的特别配置,比如针对
 webApplicationContext,因此BeanFactory接口是Spring IOC容器核心接口
+![IOC](http://p2je16s75.bkt.clouddn.com/ioc.png)
 ### Bean(配置,注解)
 - Bean的配置项
   - Id
@@ -92,6 +94,7 @@ webApplicationContext,因此BeanFactory接口是Spring IOC容器核心接口
   - 销毁
 - Bean的自动装配
 - Resource & ResourceLoader
+![bean-config](http://p2je16s75.bkt.clouddn.com/bean-config.jpg)
 ### AOP(配置,注解,AspectJ,API)
 - 什么是AOP及实现方式
 - AOP基本概念
@@ -122,6 +125,8 @@ webApplicationContext,因此BeanFactory接口是Spring IOC容器核心接口
 - 有接口和无接口的Spring AOP实现区别
     - Spring AOP默认使用标准的javaSE动态代理作为AOP代理,这使得任何接口(或者接口集)都可以被代理
     - Spring AOP中也可以使用CGLIB代理(如果一个业务对象并没有实现一个接口)
+
+![aop](http://p2je16s75.bkt.clouddn.com/aop.png)
 ### BeanFactory与ApplicationContext区别
 ApplicationContext 比  BeanFactory 更加强大,
 1. 提供了支持国际化文本消息
@@ -132,7 +137,7 @@ ApplicationContext 比  BeanFactory 更加强大,
 1. 基于XML的配置
 2. 基于注解的配置
 3. 基于Java的配置
-
+![spring-config-way](http://p2je16s75.bkt.clouddn.com/spring-config-way.jpeg)
 ### 请举例解释@Required annotation？
 - @Required注解适用于bean属性的setter方法
 - 这个注解仅仅表示,受影响的bean属性必须配置时被填充,通过bean的定义或通过自动装配一个明确值
@@ -153,10 +158,25 @@ BeanFactoryPostProcessor类型应用这些注解,这些类型必须通过XML或�
 - 可以用于装配key为String的map
 - 如果希望数组有序,可以让bean实现org.springframework.core.Ordered接口或使用
 @Ordered注解
+![require](http://p2je16s75.bkt.clouddn.com/require.jpeg)
 ### 请举例说明@Qualifier注解？
 - 按类型自动装配可能多个bean实例的情况,可以使用Spring的@Qualifier注解缩小范围(或指定唯一),也可以
 用于指定单独的构造器参数或方法参数
 - 可用于集合类型变量
+
+### Spring事务
+- 什么是事务?
+事务指的是逻辑的一组操作,这组操作要么全部成功,要么全部失败
+- 事务的特性:
+1) 原子性
+原子性是指事务是一个不可分割的工作单位,事务中的操作要么都全部发生,要么都不发生
+2) 一致性
+一致性指的是事务前后数据的完整性必须保持一致
+3) 隔离性
+隔离强调的是多个用户并发访问数据库时,一个用户的事务不能被其他用户的事务所干扰,多个并发事务之间的数据要相互隔离
+4) 持久性
+一个事务一旦被提交了,它对数据库中的数据改变就是永久性的,即数据库发生故障也不应该对其有任何影响
+![事务](http://p2je16s75.bkt.clouddn.com/%E4%BA%8B%E5%8A%A1.png)
 ### 数组及Map的自动注入
 
 
