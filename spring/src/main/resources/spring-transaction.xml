@@ -41,7 +41,7 @@
         <property name="transactionTemplate" ref="transactionTemplate"/>
     </bean>
 
-    <!--配置DAO的类(简化，会自动配置JdbcTemplate) -->
+    <!--配置DAO的类-->
     <bean id="accountDao" class="com.ai.spring.transaction.AccountDaoImpl">
         <property name="dataSource" ref="dataSource"/>
     </bean>
