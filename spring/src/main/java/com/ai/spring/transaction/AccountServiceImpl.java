@@ -6,6 +6,15 @@ package com.ai.spring.transaction;
 public class AccountServiceImpl implements AccountService {
 
     // 注入我们转账的DAO类
+
+    public AccountDao getAccountDao() {
+        return mAccountDao;
+    }
+
+    public void setAccountDao(AccountDao accountDao) {
+        mAccountDao = accountDao;
+    }
+
     private AccountDao mAccountDao;
 
     public AccountServiceImpl(AccountDao accountDao) {
@@ -14,6 +23,7 @@ public class AccountServiceImpl implements AccountService {
 
     public AccountServiceImpl() {
     }
+
 
     /**
      * @param out   :转出的账号

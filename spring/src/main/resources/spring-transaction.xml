@@ -27,11 +27,12 @@
     <context:property-placeholder location="classpath:jdbc.properties"/>
 
     <!--配置c3p0连接池-->
-    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
         <property name="driverClass" value="${jdbc.driverClass}"/>
         <property name="jdbcUrl" value="${jdbc.url}"/>
         <property name="user" value="${jdbc.username}"/>
         <property name="password" value="${jdbc.password}"/>
+
     </bean>
     <!--配置业务层-->
     <bean id="accountService" class="com.ai.spring.transaction.AccountServiceImpl">
@@ -40,6 +41,10 @@
 
     <!--配置DAO的类-->
     <bean id="accountDao" class="com.ai.spring.transaction.AccountDaoImpl">
+        <property name="jdbcTemplate" ref="jdbcTemplate"/>
+    </bean>
+    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
         <property name="dataSource" ref="dataSource"/>
     </bean>
+
 </beans>
