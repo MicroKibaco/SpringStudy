@@ -15,16 +15,14 @@ public class Girl {
     @Min(value = 18, message = "未成年少女禁止入内")
     private Integer age;
 
-    @Override
-    public String toString() {
-        return "Girl{" +
-                "id=" + id +
-                ", cupSize='" + cupSize + '\'' +
-                ", age=" + age +
-                '}';
+    private float money;
+
+    public float getMoney() {
+        return money;
     }
 
-    public Girl() {
+    public void setMoney(float money) {
+        this.money = money;
     }
 
     public Integer getId() {
@@ -49,5 +47,18 @@ public class Girl {
 
     public void setAge(Integer age) {
         this.age = age;
+    }
+
+    public Girl() {
+    }
+
+    @Override
+    public String toString() {
+        return "Girl{" +
+                "id=" + id +
+                ", cupSize='" + cupSize + '\'' +
+                ", age=" + age +
+                ", money=" + money +
+                '}';
     }
 }

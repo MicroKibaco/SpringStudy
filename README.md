@@ -140,6 +140,7 @@ ApplicationContext 比  BeanFactory 更加强大,
 1. 基于XML的配置
 2. 基于注解的配置
 3. 基于Java的配置
+
 ![spring-config-way](http://p2je16s75.bkt.clouddn.com/spring-config-way.jpeg)
 ### 请举例解释@Required annotation？
 - @Required注解适用于bean属性的setter方法

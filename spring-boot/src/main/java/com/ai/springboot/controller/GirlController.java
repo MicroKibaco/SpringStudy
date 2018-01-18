@@ -1,8 +1,10 @@
 package com.ai.springboot.controller;
 
 import com.ai.springboot.domain.Girl;
+import com.ai.springboot.domain.Result;
 import com.ai.springboot.repository.GirlRepository;
 import com.ai.springboot.service.GirlService;
+import com.ai.springboot.util.ResultUtil;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -43,14 +45,13 @@ public class GirlController {
      * 新增女生列表
      */
     @PostMapping(value = "/girls")
-    public Girl girlAdd(@Valid Girl girl, BindingResult bindingResult) {
+    public Result<Girl> girlAdd(@Valid Girl girl, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
-            logger.info(bindingResult.getFieldError().getDefaultMessage());
-            return null;
+            return ResultUtil.error(1,bindingResult.getFieldError().getDefaultMessage());
         }
         girl.setCupSize(girl.getCupSize());
         girl.setAge(girl.getAge());
-        return mGirlRepository.save(girl);
+        return ResultUtil.success(mGirlRepository.save(girl));
     }
 
     // 查询女生
