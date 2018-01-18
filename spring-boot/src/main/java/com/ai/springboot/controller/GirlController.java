@@ -4,6 +4,8 @@ import com.ai.springboot.domain.Girl;
 import com.ai.springboot.repository.GirlRepository;
 import com.ai.springboot.service.GirlService;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -20,6 +22,8 @@ import javax.validation.Valid;
 
 @RestController
 public class GirlController {
+    private final static Logger logger = LoggerFactory.getLogger(GirlController.class);
+
     @Autowired
     private GirlRepository mGirlRepository;
 
@@ -31,6 +35,7 @@ public class GirlController {
      */
     @GetMapping(value = "/girls")
     public List<Girl> girlList() {
+        logger.info("girlList");
         return mGirlRepository.findAll();
     }
 
@@ -40,7 +45,7 @@ public class GirlController {
     @PostMapping(value = "/girls")
     public Girl girlAdd(@Valid Girl girl, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
-            System.out.println(bindingResult.getFieldError().getDefaultMessage());
+            logger.info(bindingResult.getFieldError().getDefaultMessage());
             return null;
         }
         girl.setCupSize(girl.getCupSize());
