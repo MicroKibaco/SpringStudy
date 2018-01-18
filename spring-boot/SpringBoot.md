@@ -9,4 +9,5 @@
  2) 自定义属性配置
  3) Controller的使用
  4) spring-data-jpa
+ jpa定义了一系列对象持久化的标准,目前实现这一规范的产品有Hibernate TopLink等 
  5) 事物管理
