@@ -1,6 +1,11 @@
-package com.ai.springboot;
+package com.ai.springboot.controller;
+
+import com.ai.springboot.domain.Girl;
+import com.ai.springboot.repository.GirlRepository;
+import com.ai.springboot.service.GirlService;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -10,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+
+import javax.validation.Valid;
 
 @RestController
 public class GirlController {
@@ -31,12 +38,13 @@ public class GirlController {
      * 新增女生列表
      */
     @PostMapping(value = "/girls")
-    public Girl girlAdd(@RequestParam("cupSize") String cupSize,
-                        @RequestParam("age") Integer age) {
-
-        Girl girl = new Girl();
-        girl.setCupSize(cupSize);
-        girl.setAge(age);
+    public Girl girlAdd(@Valid Girl girl, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            System.out.println(bindingResult.getFieldError().getDefaultMessage());
+            return null;
+        }
+        girl.setCupSize(girl.getCupSize());
+        girl.setAge(girl.getAge());
         return mGirlRepository.save(girl);
     }
 

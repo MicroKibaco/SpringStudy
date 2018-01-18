@@ -1,4 +1,4 @@
-package com.ai.springboot;
+package com.ai.springboot.properties;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;

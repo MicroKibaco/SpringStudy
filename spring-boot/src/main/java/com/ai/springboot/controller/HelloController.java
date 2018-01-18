@@ -1,4 +1,6 @@
-package com.ai.springboot;
+package com.ai.springboot.controller;
+
+import com.ai.springboot.properties.GirlProperties;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;

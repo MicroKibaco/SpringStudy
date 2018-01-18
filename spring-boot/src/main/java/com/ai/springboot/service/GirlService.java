@@ -1,4 +1,7 @@
-package com.ai.springboot;
+package com.ai.springboot.service;
+
+import com.ai.springboot.domain.Girl;
+import com.ai.springboot.repository.GirlRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

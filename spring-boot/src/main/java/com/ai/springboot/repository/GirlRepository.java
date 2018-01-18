@@ -1,4 +1,6 @@
-package com.ai.springboot;
+package com.ai.springboot.repository;
+
+import com.ai.springboot.domain.Girl;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
