@@ -64,6 +64,6 @@
     <!--配置事务管理模板: Spring为了简化事务管理的代码而提供的类-->
     <bean id="transactionTemplate"
           class="org.springframework.transaction.support.TransactionTemplate">
-        <property name="transactionManager" value="transactionManager"/>
+        <property name="transactionManager" ref="transactionManager"/>
     </bean>
 </beans>
