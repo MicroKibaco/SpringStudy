@@ -2,74 +2,107 @@ package com.ai.hibernate.bean;
 
 import java.util.Date;
 
+import javax.persistence.Basic;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+
+@Entity
 public class Student {
-    private String sid;
-    private String sname;
-    private int gender;
-    private Date birthday;
-    private String address;
+    private Integer mSid;
+    private String mSname;
+    private String mGender;
+    private Date mBirthday;
+    private String mAddress;
 
-    public Student() {
-
+    @Basic
+    @Column(name = "sid")
+    public Integer getSid() {
+        return mSid;
     }
 
-    public Student(String sid, String sname, int gender, Date birthday, String address) {
-        this.sid = sid;
-        this.sname = sname;
-        this.gender = gender;
-        this.birthday = birthday;
-        this.address = address;
+    public void setSid(Integer sid) {
+        mSid = sid;
     }
 
-    public String getSid() {
-        return sid;
-    }
-
-    public void setSid(String sid) {
-        this.sid = sid;
-    }
-
+    @Basic
+    @Column(name = "sname")
     public String getSname() {
-        return sname;
+        return mSname;
     }
 
     public void setSname(String sname) {
-        this.sname = sname;
+        mSname = sname;
     }
 
-    public int getGender() {
-        return gender;
+    @Basic
+    @Column(name = "gender")
+    public String getGender() {
+        return mGender;
     }
 
-    public void setGender(int gender) {
-        this.gender = gender;
+    public void setGender(String gender) {
+        mGender = gender;
     }
 
+    @Basic
+    @Column(name = "birthday")
     public Date getBirthday() {
-        return birthday;
+        return mBirthday;
     }
 
     public void setBirthday(Date birthday) {
-        this.birthday = birthday;
+        mBirthday = birthday;
     }
 
+    @Basic
+    @Column(name = "address")
     public String getAddress() {
-        return address;
+        return mAddress;
     }
 
     public void setAddress(String address) {
-        this.address = address;
+        mAddress = address;
     }
+
 
 
     @Override
-    public String toString() {
-        return "Student{" +
-                "sid='" + sid + '\'' +
-                ", sname='" + sname + '\'' +
-                ", gender=" + gender +
-                ", birthday=" + birthday +
-                ", address='" + address + '\'' +
-                '}';
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Student student = (Student) o;
+
+        if (mSid != null ? !mSid.equals(student.mSid) : student.mSid != null) return false;
+        if (mSname != null ? !mSname.equals(student.mSname) : student.mSname != null) return false;
+        if (mGender != null ? !mGender.equals(student.mGender) : student.mGender != null)
+            return false;
+        if (mBirthday != null ? !mBirthday.equals(student.mBirthday) : student.mBirthday != null)
+            return false;
+        if (mAddress != null ? !mAddress.equals(student.mAddress) : student.mAddress != null)
+            return false;
+
+        return true;
     }
+
+    @Override
+    public int hashCode() {
+        int result = mSid != null ? mSid.hashCode() : 0;
+        result = 31 * result + (mSname != null ? mSname.hashCode() : 0);
+        result = 31 * result + (mGender != null ? mGender.hashCode() : 0);
+        result = 31 * result + (mBirthday != null ? mBirthday.hashCode() : 0);
+        result = 31 * result + (mAddress != null ? mAddress.hashCode() : 0);
+        return result;
+    }
+
+
+    public Student(Integer sid, String sname, String gender, Date birthday, String address) {
+        mSid = sid;
+        mSname = sname;
+        mGender = gender;
+        mBirthday = birthday;
+        mAddress = address;
+    }
+
+    public Student(){}
 }

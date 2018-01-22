@@ -3,14 +3,13 @@ package com.ai.hibernate.bean;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-
+import org.hibernate.cfg.Configuration;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import org.hibernate.cfg.Configuration;
-
 import java.util.Date;
+
 
 public class StudentTest {
 
@@ -34,10 +33,9 @@ public class StudentTest {
 
     }
 
+
     @After
     public void destory() {
-        // 提交事务
-        mTransaction.commit();
 
         // 关闭会话
         mSession.close();
@@ -50,9 +48,11 @@ public class StudentTest {
     public void testSaveStudent() {
 
         // 生成学生对象
-        Student student = new Student("1", "杨正友", 0, new Date(), "长沙");
+        Student student = new Student(1, "杨正友", "男", new Date(), "长沙");
+
         // 保存对象进数据库
         mSession.save(student);
+
 
     }
 

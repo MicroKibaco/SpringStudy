@@ -4,23 +4,11 @@
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 
-
-    <class name="com.ai.hibernate.bean.StudentEntity" table="student" schema="hibernate">
-        <id name="sid" type="java.lang.String">
-            <column name="SID"/>
-            <generator class="assigned"/>
-        </id>
-        <property name="sname" type="java.lang.String" column="sname">
-            <column name="SNAME"/>
-        </property>
-        <property name="gender" type="int" column="gender">
-            <column name="GENDER"/>
-        </property>
-        <property name="birthday" type="java.util.Date">
-            <column name="BIRTHDAY"/>
-        </property>
-        <property name="address" type="java.lang.String">
-            <column name="ADDRESS"/>
-        </property>
+    <class name="com.ai.hibernate.bean.Student" table="student" schema="hibernate">
+        <id name="sid" type="int"/>
+        <property name="sname" column="sname"/>
+        <property name="gender" column="gender"/>
+        <property name="birthday" column="birthday"/>
+        <property name="address" column="address"/>
     </class>
 </hibernate-mapping>
