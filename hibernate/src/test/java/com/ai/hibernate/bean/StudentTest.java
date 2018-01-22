@@ -36,22 +36,23 @@ public class StudentTest {
 
     @After
     public void destory() {
-
+        mTransaction.commit();
         // 关闭会话
         mSession.close();
 
         // 关闭会话工厂
         mSessionFactory.close();
+
     }
 
     @Test
     public void testSaveStudent() {
 
         // 生成学生对象
-        Student student = new Student(1, "杨正友", "男", new Date(), "长沙");
+        Student s = new Student(2, "小木箱", "女", new Date(), "衡阳");
 
         // 保存对象进数据库
-        mSession.save(student);
+        mSession.save(s);
 
 
     }

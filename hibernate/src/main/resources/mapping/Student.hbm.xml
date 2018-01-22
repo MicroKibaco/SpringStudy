@@ -5,7 +5,7 @@
 <hibernate-mapping>
 
     <class name="com.ai.hibernate.bean.Student" table="student" schema="hibernate">
-        <id name="sid" type="int"/>
+        <id name="sid" column="sid"/>
         <property name="sname" column="sname"/>
         <property name="gender" column="gender"/>
         <property name="birthday" column="birthday"/>

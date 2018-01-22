@@ -4,7 +4,10 @@
         "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
     <session-factory>
-
+        <!--MySQL授权-->
+        <!-- 1. mysql -uroot -p;
+           2. grant all privileges on *.* to hibernate@localhost identified by 'MicroKibaco0813';
+           3. flush privileges;-->
         <!-- 指定连接数据库所用的驱动 -->
         <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
         <!-- 指定连接数据库的url，hibernate连接的数据库名 -->

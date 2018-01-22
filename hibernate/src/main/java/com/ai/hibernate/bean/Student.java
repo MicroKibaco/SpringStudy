@@ -14,6 +14,17 @@ public class Student {
     private Date mBirthday;
     private String mAddress;
 
+    public Student(Integer sid, String sname, String gender, Date birthday, String address) {
+        mSid = sid;
+        mSname = sname;
+        mGender = gender;
+        mBirthday = birthday;
+        mAddress = address;
+    }
+
+    public Student() {
+    }
+
     @Basic
     @Column(name = "sid")
     public Integer getSid() {
@@ -64,8 +75,6 @@ public class Student {
         mAddress = address;
     }
 
-
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -94,15 +103,4 @@ public class Student {
         result = 31 * result + (mAddress != null ? mAddress.hashCode() : 0);
         return result;
     }
-
-
-    public Student(Integer sid, String sname, String gender, Date birthday, String address) {
-        mSid = sid;
-        mSname = sname;
-        mGender = gender;
-        mBirthday = birthday;
-        mAddress = address;
-    }
-
-    public Student(){}
 }
