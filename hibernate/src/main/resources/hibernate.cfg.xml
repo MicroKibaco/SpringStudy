@@ -26,6 +26,7 @@
         <property name="format_sql">true</property>
         <!-- 指定自动生成数据表的策略 -->
         <property name="hbm2ddl.auto">update</property>
+        <property name="current_session_context_class">thread</property>
         <!--对象关系文件-->
         <mapping resource="mapping/Student.hbm.xml"/>
         <mapping class="com.ai.hibernate.bean.Student"/>

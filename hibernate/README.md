@@ -17,3 +17,15 @@
 - 创建持久化类
 - 创建对象-关系映射文件
 - 通过Hibernate API编写访问数据库代码
+
+### session简介
+session是数据库的操作对象
+- 如何获得session对象
+1) openSession
+需要手动关闭,每次都创建了新的Session对象
+2) getCurrentSession
+在事务提交或者回滚之后自动关闭,使用现有的Session对象 
+
+### 单一主键
+- assigned 由java应用程序负责生产(手工赋值)
+- native 由底层数据库自动生成标志符,如果是MySQL就是increment,如果Oracle就是sequene等等
