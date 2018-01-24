@@ -22,12 +22,13 @@ public class CustomerServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         try {
+            resp.setCharacterEncoding("UTF-8");
             req.setCharacterEncoding("UTF-8");
             String command = req.getParameter("command");
             String description = req.getParameter("description");
             String content = req.getParameter("content");
             Class.forName("com.mysql.jdbc.Driver");
-            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/mybatis",
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/mybatis?useUnicode=true&characterEncoding=utf-8",
                     "root", "MicroKibaco0813");
             StringBuilder sql = new StringBuilder("SELECT ID,COMMAND,DESCRIPTION,CONTENT FROM MESSAGE where 1=1");
             List<String> paramList = new ArrayList<String>();
