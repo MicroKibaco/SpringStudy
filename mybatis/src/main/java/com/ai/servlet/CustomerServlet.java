@@ -17,12 +17,13 @@ import javax.servlet.http.HttpServletResponse;
 
 public class CustomerServlet extends HttpServlet {
 
+    // http://localhost:8080/customer
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/mybatis?useUnicode=true&amp;characterEncoding=utf-8",
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/mybatis",
                     "root", "MicroKibaco0813");
             String sql = "SELECT ID,COMMAND,DESCRIPTION,CONTENT FROM MESSAGE";
             PreparedStatement statement = conn.prepareStatement(sql);
@@ -30,10 +31,14 @@ public class CustomerServlet extends HttpServlet {
             List<Message> msgList = new ArrayList<Message>();
 
             while (rs.next()) {
-                Message msg = new Message("ID", "COMMAND", "DESCRIPTION", "CONTENT");
+                Message msg = new Message();
                 msgList.add(msg);
+                msg.setId(rs.getString("ID"));
+                msg.setCommand(rs.getString("COMMAND"));
+                msg.setDescription(rs.getString("DESCRIPTION"));
+                msg.setContent(rs.getString("CONTENT"));
             }
-            req.setAttribute("msgList",msgList );
+            req.setAttribute("messageList", msgList);
 
         } catch (Exception e) {
             e.printStackTrace();
