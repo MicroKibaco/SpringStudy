@@ -1,4 +1,4 @@
-﻿<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+﻿<%@ page language="java" import="java.util.*" pageEncoding="utf-8" %>
 <%@ page isELIgnored="false" %>
 <jsp:useBean id="Message" class="com.ai.bean.Message"/>
 <!DOCTYPE html PUBLIC
@@ -20,16 +20,6 @@
 
 </head>
 <body style="background: #e1e9eb;">
-<c:set value="张三" scope="session" var="name1" />
-<c:set var="name2" scope="session">李四</c:set>
-<c:set  target="${Message}"   property="id"/>
-<c:set target="${Message}" property="command">19</c:set>
-<li>从session中得到的值：${sessionScope.name1}</li>
-<li>从session中得到的值：${sessionScope.name2}</li>
-
-<li>从Bean中获取对象person的id值：<c:out value="${Message.id}"/></li>
-
-<li>从Bean中获取对象person的command值：<c:out value="${Message.command}"/></li>
 <form action="<%= basePath %>customer" id="mainForm" method="post">
     <input type="hidden" name="currentPage" id="currentPage" value="${page.currentPage}"/>
 
@@ -78,7 +68,7 @@
                             <td>${message.description}</td>
                             <td>
                                 <a href="#">修改</a>&nbsp;&nbsp;&nbsp;
-                                <a href="${basePath}DeleteOneServlet.action?id=${message.id}">删除</a>
+                                <a href="${pageScope.basePath}DeleteOneServlet.action?id=${message.id}">删除</a>
                             </td>
                         </tr>
                     </c:forEach>
@@ -89,6 +79,4 @@
     </div>
 </form>
 </body>
-
-
 </html>
