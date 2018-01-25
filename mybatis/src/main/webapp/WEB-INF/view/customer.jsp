@@ -35,12 +35,12 @@
                 <tr>
                     <td width="90" align="right">指令名称：</td>
                     <td>
-                        <input name="command" type="text" class="allInput" value="${command}"/>
+                        <input name="command" type="text" class="allInput" value="${requestScope.command}"/>
                     </td>
                     <td width="90" align="right">描述：</td>
                     <td>
                         <input name="description" type="text" class="allInput"
-                               value="${description}"/>
+                               value="${requestScope.description}"/>
                     </td>
                     <td width="85" align="right"><input type="submit" class="tabSub" value="查 询"/>
                     </td>
