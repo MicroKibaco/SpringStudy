@@ -16,36 +16,51 @@
     <meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE"/>
     <title>内容列表页面</title>
     <link href="<%= basePath %>resources/css/all.css" rel="stylesheet" type="text/css"/>
-    <script src="<%= basePath %>resources/js/jquery-1.8.0.min.js" type="javascript"></script>
+    <script src="<%= basePath %>resources/js/jquery-1.8.0.min.js" type="text/javascript"></script>
+    <script src="<%= basePath %>resources/js/back/list.js" type="text/javascript"></script>
 
 </head>
 <body style="background: #e1e9eb;">
 <form action="<%= basePath %>customer" id="mainForm" method="post">
-    <input type="hidden" name="currentPage" id="currentPage" value="${page.currentPage}"/>
+    <input type="hidden" name="currentPage" id="currentPage" value="${pageScope.currentPage}"/>
 
     <div class="right">
         <div class="current">当前位置：<a href="javascript:void(0)" style="color:#6E6E6E;">内容管理</a> &gt;
             内容列表
         </div>
+
         <div class="rightCont">
-            <p class="g_title fix">内容列表 <a class="btn03" href="#">新 增</a>&nbsp;&nbsp;&nbsp;&nbsp;<a
-                    class="btn03" href="javascript:deleteBatch('<%=basePath%>');">删 除</a></p>
+            <p class="g_title fix">
+                内容列表
+                <a class="btn03" href="#">新 增</a>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <a class="btn03" href="javascript:deleteBatch('<%=basePath%>');">删 除</a>
+            </p>
+
             <table class="tab1">
                 <tbody>
                 <tr>
                     <td width="90" align="right">指令名称：</td>
                     <td>
-                        <input name="command" type="text" class="allInput" value="${requestScope.command}"/>
+                        <input name="command" type="text" class="allInput"
+                               value="${requestScope.command}"/>
                     </td>
+
                     <td width="90" align="right">描述：</td>
+
                     <td>
                         <input name="description" type="text" class="allInput"
                                value="${requestScope.description}"/>
                     </td>
-                    <td width="85" align="right"><input type="submit" class="tabSub" value="查 询"/>
+
+                    <td width="85" align="right">
+                        <input type="submit" class="tabSub" value="查 询"/>
                     </td>
+
                 </tr>
+
                 </tbody>
+
             </table>
             <div class="zixun fix">
                 <table class="tab2" width="100%">
@@ -57,8 +72,6 @@
                         <th>描述</th>
                         <th>操作</th>
                     </tr>
-
-
                     <c:forEach items="${requestScope.messageList}" var="message" varStatus="status">
                         <tr
                                 <c:if test="${status.index % 2 != 0}">style='background-color:#ECF6EE;'</c:if>>
@@ -68,12 +81,30 @@
                             <td>${message.description}</td>
                             <td>
                                 <a href="#">修改</a>&nbsp;&nbsp;&nbsp;
-                                <a href="${pageScope.basePath}DeleteOneServlet.action?id=${message.id}">删除</a>
+                                <a href="${pageScope.basePath}DeleteOne?id=${message.id}">删除</a>
                             </td>
                         </tr>
                     </c:forEach>
                     </tbody>
                 </table>
+                <div class='page fix'>
+                    共 <b>${pageScope.totalNumber}</b> 条
+                    <c:if test="${pageScope.currentPage != 1}">
+                        <a href="javascript:changeCurrentPage('1')" class='first'>首页</a>
+                        <a href="javascript:changeCurrentPage('${pageScope.currentPage-1}')"
+                           class='pre'>上一页</a>
+                    </c:if>
+                    当前第<span>${pageScope.currentPage}/${pageScope.totalPage}</span>页
+                    <c:if test="${pageScope.currentPage != pageScope.totalPage}">
+                        <a href="javascript:changeCurrentPage('${pageScope.currentPage+1}')"
+                           class='next'>下一页</a>
+                        <a href="javascript:changeCurrentPage('${pageScope.totalPage}')"
+                           class='last'>末页</a>
+                    </c:if>
+                    跳至&nbsp;<input id="currentPageText" type='text' value='${pageScope.currentPage}'
+                                   class='allInput w28'/>&nbsp;页&nbsp;
+                    <a href="javascript:changeCurrentPage($('#currentPageText').val())" class='go'>GO</a>
+                </div>
             </div>
         </div>
     </div>

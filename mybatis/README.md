@@ -38,3 +38,18 @@
 ![用来显示数据对象（字符串、表达式）的内容或结果](images/c-out.png)
 
 #### < c:set>
+
+
+### Mybatis 之 SqlSession
+#### SqlSession的作用:
+1) 向SQL语句传入参数
+2) 执行SQL语句
+3) 获取SQL语句的结果
+4) 事务控制
+
+#### 如何得到SqlSession:
+1) 通过配置文件获取数据库的链接信息
+2) 通过配置信息构建SqlSessionFactory
+3) 通过SqlSessionFactory打开数据库会话
+
+ 
