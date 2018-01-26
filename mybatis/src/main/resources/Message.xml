@@ -28,7 +28,9 @@
 
     <delete id="deleteBatch" parameterType="java.util.List">
         delete from MESSAGE WHERE ID IN (
-
+        <foreach collection="list" item="item" separator=",">
+            #{item}
+        </foreach>
         )
     </delete>
 </mapper>
