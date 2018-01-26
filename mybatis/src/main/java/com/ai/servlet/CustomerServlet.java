@@ -32,7 +32,7 @@ public class CustomerServlet extends HttpServlet {
         // 查询消息列表并传给页面
         req.setAttribute("messageList", service.queryMessageList(command, description));
         // 消息页面跳转
-        req.getRequestDispatcher("/WEB-INF/view/customer.jsp").forward(req, resp);
+        req.getRequestDispatcher("/WEB-INF/view/back/customer.jsp").forward(req, resp);
     }
 
     @Override

@@ -1,3 +1,4 @@
+<%@ page language="java" import="java.util.*" pageEncoding="utf-8" %>
 <%@ page isELIgnored="false" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <%
@@ -7,6 +8,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE"/>
     <title>微信公众号</title>
     <!--讨论区滚动条begin-->
     <link rel="stylesheet" type="text/css" href="<%= basePath %>resources/css/jscrollpane1.css"/>
@@ -30,6 +32,20 @@
     <div class="talk_title"><span>正在与公众号对话</span></div>
     <div class="talk_record">
         <div id="jp-container" class="jp-container">
+
+            <div class="talk_recordbox">
+
+                <div class="user">
+                    <img src="<%= basePath %>resources/images/thumbs/talk_recordbox.jpg" alt=""/>
+                </div>
+
+                <div class="talk_recordtextbg">&nbsp;</div>
+                <div class="talk_recordtext">
+                    <h3>客官,来吧,做吧!回复[查看]收取更多精彩内容.</h3>
+                    <span class="talk_time">2017-09-26 15:06</span>
+                </div>
+
+            </div>
 
         </div>
     </div>
