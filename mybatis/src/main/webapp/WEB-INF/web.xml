@@ -50,6 +50,6 @@
 
     <servlet-mapping>
         <servlet-name>AutoReplyServlet</servlet-name>
-        <url-pattern>/AutoReplyServlet</url-pattern>
+        <url-pattern>/AutoReply</url-pattern>
     </servlet-mapping>
 </web-app>
