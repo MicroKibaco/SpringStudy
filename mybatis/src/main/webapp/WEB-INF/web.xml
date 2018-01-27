@@ -22,6 +22,11 @@
         <servlet-name>InitTalkServlet</servlet-name>
         <servlet-class>com.ai.servlet.InitTalkServlet</servlet-class>
     </servlet>
+    
+    <servlet>
+        <servlet-name>AutoReplyServlet</servlet-name>
+        <servlet-class>com.ai.servlet.AutoReplyServlet</servlet-class>
+    </servlet>
 
     <servlet-mapping>
         <servlet-name>CustomerServlet</servlet-name>
@@ -41,5 +46,10 @@
     <servlet-mapping>
         <servlet-name>InitTalkServlet</servlet-name>
         <url-pattern>/InitTalk</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>AutoReplyServlet</servlet-name>
+        <url-pattern>/AutoReplyServlet</url-pattern>
     </servlet-mapping>
 </web-app>
