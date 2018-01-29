@@ -31,6 +31,7 @@
 
     <mappers>
         <mapper resource="Message.xml"/>
+        <mapper resource="CommandContent.xml"/>
     </mappers>
 
 </configuration>
