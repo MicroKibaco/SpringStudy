@@ -3,15 +3,21 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<!--suppress ALL -->
+
+<!--suppress MybatisMapperXmlInspection -->
 <mapper namespace="Command">
     <resultMap type="com.ai.bean.Command" id="Command">
         <id column="C_ID" jdbcType="INTEGER" property="id"/>
         <result column="NAME" jdbcType="VARCHAR" property="name"/>
         <result column="DESCRIPTION" jdbcType="VARCHAR" property="description"/>
-        <collection property="contentList" resultMap="CommandContent.Content"/>
+        <collection property="contentList" resultMap="Content"/>
     </resultMap>
 
+    <resultMap type="com.ai.bean.CommandContent" id="Content">
+        <id column="ID" jdbcType="INTEGER" property="id"/>
+        <result column="CONTENT" jdbcType="VARCHAR" property="content"/>
+        <result column="COMMAND_ID" jdbcType="VARCHAR" property="commandId"/>
+    </resultMap>
 
     <select id="queryCommandList" parameterType="com.ai.bean.Command" resultMap="Command">
         select a.ID C_ID,a.NAME,a.DESCRIPTION,b.ID,b.CONTENT,b.COMMAND_ID
