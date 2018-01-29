@@ -25,7 +25,7 @@ public class QueryService {
 	public String queryByCommand(String command) {
 		MessageDao messageDao = new MessageDao();
 		List<Message> messageList;
-		if(Iconst.HELP_COMMAND.equals(command)) {
+	/*	if(Iconst.HELP_COMMAND.equals(command)) {
 			messageList = messageDao.queryMessageList(null, null);
 			StringBuilder result = new StringBuilder();
 			for(int i = 0; i < messageList.size(); i++) {
@@ -35,7 +35,7 @@ public class QueryService {
 				result.append("回复[" + messageList.get(i).getCommand() + "]可以查看" + messageList.get(i).getDescription());
 			}
 			return result.toString();
-		}
+		}*/
 		messageList = messageDao.queryMessageList(command, null);
 		if(messageList.size() > 0) {
 			return messageList.get(0).getContent();
