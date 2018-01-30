@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 
-<!--suppress MybatisMapperXmlInspection -->
+
 <mapper namespace="Command">
     <resultMap type="com.ai.bean.Command" id="Command">
         <id column="C_ID" jdbcType="INTEGER" property="id"/>

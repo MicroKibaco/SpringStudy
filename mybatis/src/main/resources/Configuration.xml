@@ -13,6 +13,11 @@
        <typeAliases>
            <typeAlias alias="UserAlias" type="org.apache.ibatis.submitted.complex_property.User"/>
        </typeAliases>-->
+    <plugins>
+        <plugin interceptor="com.ai.interceptor.PageInterceptor">
+            <property name="test" value="abc"/>
+        </plugin>
+    </plugins>
 
     <environments default="development">
         <environment id="development">
@@ -32,6 +37,7 @@
     <mappers>
         <mapper resource="Message.xml"/>
         <mapper resource="CommandContent.xml"/>
+        <mapper resource="Command.xml"/>
     </mappers>
 
 </configuration>
